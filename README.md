@@ -24,14 +24,52 @@
   - generates tables and plots identical to those reported in the paper
   - 
 ## 2. Repository Structure
-  mbrl-testing-frameworks-empirical-study/
-  ├── notebooks/ # All experiment notebooks
-  ├── agents/ # Pre-trained agent components
-  ├── results/ # Generated results (tables, plots, raw logs)
-  ├── data/ # Test pools (e.g., Connect4)
-  ├── envs/ # Custom environments (e.g., Connect4)
-  ├── metrics/ # Metric utilities (duplicated inside notebooks)
-  └── .git/ # Git metadata
+mbrl-testing-frameworks-empirical-study/
+├── notebooks/              # All experiment notebooks (one per agent–environment pair)
+│   ├── N01_DynaQ_Taxi.ipynb
+│   ├── N02_DynaQ_Frozenlake.ipynb
+│   ├── N03_MuZero_Connect4.ipynb
+│   ├── N04_MuZero_Cartpole.ipynb
+│   ├── N05_PETS_Pendulum.ipynb
+│   ├── N06_DreamerV3_Crafter.ipynb
+│   └── N07_MuZero_Lunalander.ipynb
+│
+├── agents/                 # Fixed, pre-trained agent components used for testing
+│   ├── dynaq/
+│   │   ├── taxi/
+│   │   └── frozenlake/
+│   ├── muzero/
+│   │   ├── connect4/
+│   │   ├── cartpole/
+│   │   └── lunalander/
+│   ├── pets/
+│   │   └── pendulum/
+│   └── dreamerv3/
+│       └── crafter/        # DreamerV3 agent (agent.pkl via Zenodo)
+│
+├── results/                # Generated results (created after notebook execution)
+│   ├── taxi/
+│   ├── frozenlake/
+│   ├── connect4/
+│   ├── pendulum/
+│   ├── cartpole/
+│   ├── lunalander/
+│   └── crafter/
+│
+├── data/                   # Auxiliary data and test pools
+│   └── test_pools/
+│       ├── connect4_pool.py
+│       └── connect4_pool.pkl
+│
+├── envs/                   # Custom environment implementations
+│   └── connect4.py
+│
+├── metrics/                # Metric utilities (duplicated inside notebooks for self-containment)
+│
+├── .git/                   # Git metadata (not part of the artifact logic)
+├── .gitignore
+└── README.md
+
   The `results/` directory is populated automatically when notebooks are executed.
   
 ## 3. Running the Artifact
