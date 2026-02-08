@@ -39,10 +39,8 @@ Each notebook:
 - generates tables and plots used in the paper
 
 ---
-
 ## Repository Structure
 
-```text
 mbrl-testing-frameworks-empirical-study/
 ├── notebooks/        # All experiment notebooks
 ├── agents/           # Pre-trained agent components
@@ -55,8 +53,8 @@ The results/ directory is populated automatically when notebooks are executed.
 ## Running the Artifact
 
 This artifact can be executed either on **Google Colab** (recommended) or **locally**.
----
 
+---
 ### Google Colab (Recommended)
 Each notebook includes a **Google Colab–specific setup cell**.
 Steps:
@@ -70,12 +68,10 @@ Each notebook also includes a **local path configuration cell**, for example:
 ```python
 AGENT_ROOT  = Path("mbrl-testing-frameworks-empirical-study/agents/muzero/cartpole")
 RESULTS_DIR = Path("mbrl-testing-frameworks-empirical-study/results/cartpole")
-
+```
 Requirements: Python ≥ 3.9, Jupyter Notebook or JupyterLab
 
-
 ---
-
 ## Large Model Files (DreamerV3)
 
 The DreamerV3 checkpoint (`agent.pkl`) is **not included** in this repository due to file size constraints.
@@ -87,13 +83,14 @@ To run the Crafter experiment with the real DreamerV3 agent:
 3. In `N06_DreamerV3_Crafter.ipynb`, set:
     ```python
     USE_REAL_DREAMER = True
+    ```text
+    
 ### Default Behavior
 By default, the notebook runs with a competent fallback policy that preserves: action distribution characteristics, interaction frequency, oracle semantics
 This ensures the notebook remains fully executable even without the large binary file.
-```text
+
 
 ---
-
 ## Expected Outputs
 After executing a notebook, the following artifacts are generated under:
 ### tables/
@@ -110,4 +107,3 @@ This repository is **fully anonymized** for double-blind review:
 - no author names or affiliations are included
 - no identifying metadata is present
 - external resources (e.g., Zenodo) are referenced without attribution
-
