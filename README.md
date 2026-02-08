@@ -52,8 +52,62 @@ mbrl-testing-frameworks-empirical-study/
 ├── metrics/          # Metric utilities (also defined inside notebooks)
 The results/ directory is populated automatically when notebooks are executed.
 
-##Anonymity Statement
-  -This repository is fully anonymized for double-blind review:
-  -no author names or affiliations are included
-  -no identifying metadata is present
-  -external resources (e.g., Zenodo) are referenced without attribution
+## Running the Artifact
+
+This artifact can be executed either on **Google Colab** (recommended) or **locally**.
+---
+
+### Google Colab (Recommended)
+Each notebook includes a **Google Colab–specific setup cell**.
+Steps:
+1. Upload the repository to **Google Drive**
+2. Open a notebook from the `notebooks/` directory
+3. Run all cells sequentially
+All required output folders are created automatically during execution.
+---
+### Local Execution
+Each notebook also includes a **local path configuration cell**, for example:
+```python
+AGENT_ROOT  = Path("mbrl-testing-frameworks-empirical-study/agents/muzero/cartpole")
+RESULTS_DIR = Path("mbrl-testing-frameworks-empirical-study/results/cartpole")
+
+Requirements: Python ≥ 3.9, Jupyter Notebook or JupyterLab
+
+
+---
+
+## Large Model Files (DreamerV3)
+
+The DreamerV3 checkpoint (`agent.pkl`) is **not included** in this repository due to file size constraints.
+It is publicly available via Zenodo:   (🔗 https://zenodo.org/records/18528220)
+### Using the Real DreamerV3 Policy
+To run the Crafter experiment with the real DreamerV3 agent:
+1. Download `agent.pkl` from Zenodo
+2. Place it under: agents/dreamerv3/crafter/
+3. In `N06_DreamerV3_Crafter.ipynb`, set:
+    ```python
+    USE_REAL_DREAMER = True
+### Default Behavior
+By default, the notebook runs with a competent fallback policy that preserves: action distribution characteristics, interaction frequency, oracle semantics
+This ensures the notebook remains fully executable even without the large binary file.
+
+
+---
+
+## Expected Outputs
+After executing a notebook, the following artifacts are generated under:
+### tables/
+- Single-row metric summaries per testing framework
+### figs/
+- Failure Rate (FR) bar plots
+- Cumulative Failures vs Tests
+- Cumulative Failures vs Time
+### raw_single/
+- Per-episode failure logs
+
+## Anonymity Statement
+This repository is **fully anonymized** for double-blind review:
+- no author names or affiliations are included
+- no identifying metadata is present
+- external resources (e.g., Zenodo) are referenced without attribution
+
