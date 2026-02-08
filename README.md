@@ -90,7 +90,7 @@ To run the Crafter experiment with the real DreamerV3 agent:
 ### Default Behavior
 By default, the notebook runs with a competent fallback policy that preserves: action distribution characteristics, interaction frequency, oracle semantics
 This ensures the notebook remains fully executable even without the large binary file.
-
+```text
 
 ---
 
