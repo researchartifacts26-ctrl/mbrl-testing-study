@@ -40,7 +40,7 @@ Each notebook:
 
 ---
 ## Repository Structure
-
+```text
 mbrl-testing-frameworks-empirical-study/
 ├── notebooks/        # All experiment notebooks
 ├── agents/           # Pre-trained agent components
@@ -49,7 +49,7 @@ mbrl-testing-frameworks-empirical-study/
 ├── envs/             # Custom environments (e.g., Connect4)
 ├── metrics/          # Metric utilities (also defined inside notebooks)
 The results/ directory is populated automatically when notebooks are executed.
-
+```
 ## Running the Artifact
 
 This artifact can be executed either on **Google Colab** (recommended) or **locally**.
@@ -83,7 +83,7 @@ To run the Crafter experiment with the real DreamerV3 agent:
 3. In `N06_DreamerV3_Crafter.ipynb`, set:
     ```python
     USE_REAL_DREAMER = True
-    ```text
+    ```
     
 ### Default Behavior
 By default, the notebook runs with a competent fallback policy that preserves: action distribution characteristics, interaction frequency, oracle semantics
