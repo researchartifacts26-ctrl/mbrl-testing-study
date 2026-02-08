@@ -1,0 +1,13 @@
+{
+  "env_id": "crafter",
+  "obs_type": "rgb",
+  "obs_space": [
+    64,
+    64,
+    3
+  ],
+  "action_space": {
+    "type": "discrete",
+    "n": 17
+  }
+}

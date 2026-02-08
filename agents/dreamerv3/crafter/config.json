@@ -1,0 +1,7 @@
+{
+  "name": "strong",
+  "seed": 33,
+  "train_steps_target": 1000000,
+  "repo": "dreamerv3",
+  "config_preset": "crafter"
+}
