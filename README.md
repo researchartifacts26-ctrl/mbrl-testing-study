@@ -47,7 +47,8 @@ mbrl-testing-frameworks-empirical-study/
 ├── envs/             # Custom environments (e.g., Connect4)
 ├── metrics/          # Metric utilities (also defined inside notebooks)
 The results/ directory is populated automatically when notebooks are executed.
-```
+```markdown
+
 ## Running the Artifact
 
 This artifact can be executed either on Google Colab (recommended) or locally.
@@ -57,8 +58,9 @@ This artifact can be executed either on Google Colab (recommended) or locally.
 Each notebook includes a Google Colab–specific setup cell.
 Steps:
 1. Upload the repository to Google Drive
-2. Open a notebook from the `notebooks/` directory
-3. Run all cells sequentially (or use "run all")
+3. Open a notebook from the `notebooks/` directory
+5. Run all cells sequentially (or use "run all")
+
 All required output folders are created automatically during execution.
 ---
 ### Local Execution
@@ -66,14 +68,15 @@ Each notebook also includes a local path configuration cell, for example:
 ```python
 AGENT_ROOT  = Path("mbrl-testing-frameworks-empirical-study/agents/muzero/cartpole")
 RESULTS_DIR = Path("mbrl-testing-frameworks-empirical-study/results/cartpole")
-```
+
 Requirements: Python ≥ 3.9, Jupyter Notebook or JupyterLab
 
 ---
+```markdown
 ## Large Model Files (DreamerV3)
 
 The DreamerV3 checkpoint (`agent.pkl`) is not included in this repository due to file size constraints.
-It is publicly available via Zenodo:   (🔗 https://zenodo.org/records/18528220)
+🔗 [DreamerV3 agent checkpoint (Zenodo)](https://zenodo.org/records/18528220)
 ### Using the Real DreamerV3 Policy
 To run the Crafter experiment with the real DreamerV3 agent:
 1. Download `agent.pkl` from Zenodo
@@ -81,7 +84,8 @@ To run the Crafter experiment with the real DreamerV3 agent:
 3. In `N06_DreamerV3_Crafter.ipynb`, set:
     ```python
     USE_REAL_DREAMER = True
-    ```   
+    ```markdown
+   
 ### Default Behavior
 By default, the notebook runs with a competent fallback policy that preserves: action distribution characteristics, interaction frequency, oracle semantics
 This ensures the notebook remains fully executable even without the large binary file.
