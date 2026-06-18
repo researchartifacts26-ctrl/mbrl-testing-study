@@ -1,0 +1,10 @@
+{
+  "env": "WindyGridworld",
+  "episodes": 1500,
+  "alpha": 0.1,
+  "gamma": 0.99,
+  "epsilon_min": 0.05,
+  "planning_steps": 20,
+  "success_rate": 0.992,
+  "seed": 2025
+}
