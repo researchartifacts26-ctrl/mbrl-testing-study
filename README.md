@@ -1,6 +1,9 @@
-# Empirical Study on Testing Model-Based Reinforcement Learning Systems
+#  Research Artifacts for Testing Model-Based Reinforcement Learning Systems
 
-This repository contains the research artifact accompanying an empirical study on the applicability and effectiveness of existing Reinforcement Learning (RL) testing frameworks when applied to Model-Based Reinforcement Learning (MBRL) systems.
+
+This repository contains the research artifacts accompanying two complementary studies on testing Model-Based Reinforcement Learning (MBRL) systems: 
+(1) an empirical evaluation of existing RL testing frameworks for MBRL systems 
+(2) an architecture-aware test case prioritization (TCP) approach for MBRL systems.
 
 ---
 
@@ -18,35 +21,70 @@ This repository contains the research artifact accompanying an empirical study o
 
 ## Artifact Overview
 
-The artifact consists of **seven executable Jupyter notebooks**, each corresponding to one environment–agent pair:
+This repository contains the research artifacts for two complementary studies on testing Model-Based Reinforcement Learning (MBRL) systems.
 
-| Notebook | Agent | Environment |
-|--------|------|------------|
-| `N01_DynaQ_Taxi.ipynb` | Dyna-Q | Taxi |
-| `N02_DynaQ_Frozenlake.ipynb` | Dyna-Q | FrozenLake |
-| `N03_MuZero_Connect4.ipynb` | MuZero | Connect4 |
-| `N04_MuZero_Cartpole.ipynb` | MuZero | CartPole |
-| `N05_PETS_Pendulum.ipynb` | PETS | Pendulum |
-| `N06_DreamerV3_Crafter.ipynb` | DreamerV3 | Crafter |
-| `N07_MuZero_Lunalander.ipynb` | MuZero | LunarLander |
+### Study 1: Applicability of RL Testing Frameworks to MBRL
 
-Each notebook:
-- loads a fixed, pre-trained agent
-- executes 18 RL testing frameworks
-- computes metrics (FR, TTF, APFD, APFD-time)
-- generates tables and plots
+This study evaluates the applicability and effectiveness of existing Reinforcement Learning (RL) testing frameworks when applied to MBRL systems.
+
+The artifact includes executable notebooks for reproducing experiments across multiple MBRL agents and environments.
+
+### Study 2: Architecture-Aware Test Case Prioritization (TCP) for MBRL
+
+This study investigates architecture-specific prioritization signals derived from different MBRL architectures (Dyna-Q, MuZero, DreamerV3, and PETS) and evaluates their effectiveness in accelerating failure detection.
+
+The artifact includes executable notebooks that reproduce the TCP experiments for each agent–environment pair.
+
+### Study 1 Notebooks
+
+| Notebook                      | Agent     | Environment |
+| ----------------------------- | --------- | ----------- |
+| `N01_DynaQ_Taxi.ipynb`        | Dyna-Q    | Taxi        |
+| `N02_DynaQ_Frozenlake.ipynb`  | Dyna-Q    | FrozenLake  |
+| `N03_MuZero_Connect4.ipynb`   | MuZero    | Connect4    |
+| `N04_MuZero_Cartpole.ipynb`   | MuZero    | CartPole    |
+| `N05_PETS_Pendulum.ipynb`     | PETS      | Pendulum    |
+| `N06_DreamerV3_Crafter.ipynb` | DreamerV3 | Crafter     |
+| `N07_MuZero_Lunalander.ipynb` | MuZero    | LunarLander |
+
+Each notebook loads a fixed pre-trained agent, executes the testing frameworks, computes evaluation metrics, and generates the corresponding tables and plots.
+
+### Study 2 Notebooks
+
+| Notebook                             | Agent     | Environment                |
+| ------------------------------------ | --------- | -------------------------- |
+| `01_TCP_DynaQ_Taxi.ipynb`            | Dyna-Q    | Taxi                       |
+| `02_TCP_DynaQ_FrozenLake.ipynb`      | Dyna-Q    | FrozenLake                 |
+| `03_TCP_DynaQ_FourRooms.ipynb`       | Dyna-Q    | FourRooms                  |
+| `04_TCP_DynaQ_StochasticWindy.ipynb` | Dyna-Q    | Stochastic Windy Gridworld |
+| `05_TCP_MuZero_Connect4.ipynb`       | MuZero    | Connect4                   |
+| `06_TCP_MuZero_Cartpole.ipynb`       | MuZero    | CartPole                   |
+| `07_TCP_MuZero_Lunalander.ipynb`     | MuZero    | LunarLander                |
+| `08_TCP_Dreamer_Crafter.ipynb`       | DreamerV3 | Crafter                    |
+| `09_TCP_PETS_Pendulum.ipynb`         | PETS      | Pendulum                   |
+
+Each notebook reproduces the architecture-aware TCP evaluation and generates the prioritization effectiveness metrics and plots reported in the study.
 
 ---
-## Repository Structure
-```text
-mbrl-testing-frameworks-empirical-study/
-├── notebooks/        # All experiment notebooks
-├── agents/           # Pre-trained agent components
-├── results/          # Generated results (tables, plots, raw logs)
-├── data/             # Test pools (e.g., Connect4)
-├── envs/             # Custom environments (e.g., Connect4)
 
-The results/ directory is populated automatically when notebooks are executed.
+## Repository Structure
+
+```text
+mbrl-testing-study/
+├── Phase_1_MBRL_Testing/   # Study 1 reproduction notebooks
+├── Phase_2_TCP/            # Study 2 reproduction notebooks
+├── agents/                 # Pre-trained agents and checkpoints
+├── data/                   # Experimental datasets and test pools
+├── envs/                   # Custom environments
+├── results/                # Sample outputs generated by the notebooks
+├── README.md
+└── .gitignore
+```
+
+The experiment logic, analysis procedures, metric computation, and visualization code are integrated directly within the notebooks.
+
+The `results/` directory contains representative sample outputs. Running the notebooks will regenerate the corresponding results automatically.
+
 ```
 
 ## Running the Artifact
@@ -58,7 +96,9 @@ This artifact can be executed either on Google Colab (recommended) or locally.
 Each notebook includes a Google Colab–specific setup cell.
 Steps:
 1. Upload the repository to Google Drive
-3. Open a notebook from the `notebooks/` directory
+3. Open a notebook from either:
+        - Phase_1_MBRL_Testing/
+        - Phase_2_TCP/
 5. Run all cells sequentially (or use "run all")
 
 All required output folders are created automatically during execution.
@@ -67,8 +107,8 @@ All required output folders are created automatically during execution.
 ### Local Execution
 Each notebook also includes a local path configuration cell, for example:
 ```python
-AGENT_ROOT  = Path("mbrl-testing-frameworks-empirical-study/agents/muzero/cartpole")
-RESULTS_DIR = Path("mbrl-testing-frameworks-empirical-study/results/cartpole")
+AGENT_ROOT = Path("agents/muzero/cartpole")
+RESULTS_DIR = Path("results/cartpole")
 ```
 Requirements: Python ≥ 3.9, Jupyter Notebook or JupyterLab
 
