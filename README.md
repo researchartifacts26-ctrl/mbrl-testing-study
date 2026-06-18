@@ -138,21 +138,38 @@ This ensures the notebook remains fully executable even without the large binary
 
 ---
 ## Expected Outputs
-After executing a notebook, the following artifacts are generated under:
 
-*tables/*
+### Study 1: MBRL Testing
 
-- Single-row metric summaries per testing framework
-  
-*figs/*
+tables/
+- Failure rate summaries
+- Time-to-failure summaries
+- Framework-level metric tables
 
-- Failure Rate bar plots
+figs/
+- Failure Rate plots
 - Cumulative Failures vs Tests
 - Cumulative Failures vs Time
-  
-*raw_single/*
 
+raw_single/
 - Per-episode failure logs
+
+### Study 2: TCP
+
+tables/
+- APFD summaries
+- APFD-time summaries
+- TCP signal rankings
+- Statistical comparison tables
+
+figs/
+- APFD comparison plots
+- APFD-time comparison plots
+- TCP signal comparison plots
+
+raw/
+- Prioritized execution traces
+- Signal-specific rankings
 ---
 ## Anonymity Statement
 This repository is fully anonymized for double-blind review:
