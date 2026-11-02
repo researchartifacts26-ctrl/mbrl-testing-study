@@ -170,6 +170,18 @@ figs/
 raw/
 - Prioritized execution traces
 - Signal-specific rankings
+
+## Supplementary Material — TCP Study
+
+The [TCP Supplementary Material](supplementary/TCP_SupplementaryMaterial.pdf) uses the same table numbering as the manuscript.
+
+| Manuscript reference | Supplementary content | PDF pages |
+| --- | --- | --- |
+| Tables S1–S7 | Detailed environment-level statistical results | 1–3 |
+| Table S8 | Framework-level synthesis of TCP effectiveness | 4 |
+| Table S9 | Top-performing TCP signal groups in random testing pools | 5 |
+| Table S10 | Framework-specific highest-mean orderings and all-pairs comparisons | 6 |
+
 ---
 ## Anonymity Statement
 This repository is fully anonymized for double-blind review:
